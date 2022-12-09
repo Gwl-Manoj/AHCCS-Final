@@ -1,0 +1,225 @@
+package Other_Alternate_Options_POM;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+
+public class Form_Page_6_Pom 
+{
+
+	@FindBy(xpath = "(//input[@class='form-control'])[1]") private WebElement Full_Name;
+	@FindBy(xpath = "(//div[@class='custom-control custom-radio'])[1]") private WebElement Enrolled_Here_RadioBtn;
+	@FindBy(xpath = "(//div[@class='custom-control custom-radio'])[2]") private WebElement Enrolled_Here_RadioBtn1;
+	@FindBy(xpath = "(//div[@class='fs-label'])[1]") private WebElement Year;
+	@FindBy(xpath = "(//div[@class='fs-option-label'])[3]") private WebElement Year_1;
+	
+	@FindBy(xpath = "(//div[@class='custom-control custom-radio'])[3]") private WebElement Siblings_RadioBtn;
+	@FindBy(xpath = "(//div[@class='custom-control custom-radio'])[4]") private WebElement Siblings_RadioBtn1;
+	@FindBy(name = "siblings_guardian_email") private WebElement siblings_guardian_Name;
+	
+	@FindBy(xpath = "(//input[@class='form-control'])[3]") private WebElement Primary_Parent_Email;
+	@FindBy(xpath = "(//input[@class='form-control'])[4]") private WebElement Primary_Parent_Phone;
+	@FindBy(xpath = "(//input[@class='form-control'])[5]") private WebElement Primary_Parent_Employeer;
+	@FindBy(xpath = "(//input[@class='form-control'])[6]") private WebElement Work_number;
+	@FindBy(xpath = "(//input[@class='form-control'])[7]") private WebElement Work_Email;
+	@FindBy(xpath = "(//div[@class='fs-label'])[2]") private WebElement Contact_Option;
+	@FindBy(xpath = "(//div[@class='fs-option-label'])[27]") private WebElement Contact_Option_1;
+	@FindBy(xpath = "(//input[@class='form-control'])[8]") private WebElement Contact_Language;
+	@FindBy(xpath = "(//input[@class='form-control'])[9]") private WebElement Name;
+	@FindBy(xpath = "(//input[@class='form-control'])[10]") private WebElement Email;
+	@FindBy(xpath = "(//input[@class='form-control'])[11]") private WebElement Relationship_With_Student;
+	@FindBy(xpath = "(//input[@class='form-control'])[12]") private WebElement Phone_Number;
+	@FindBy(xpath = "(//input[@class='form-control'])[13]") private WebElement Name1;
+	@FindBy(xpath = "(//input[@class='form-control'])[14]") private WebElement Email1;
+	@FindBy(xpath = "(//input[@class='form-control'])[15]") private WebElement Relationship_With_Student1;
+	@FindBy(xpath = "(//input[@class='form-control'])[16]") private WebElement Phone_Number1;
+	@FindBy(xpath = "//input[@class='btn btn-primary btn-lg']") private WebElement Next_Btn;
+	
+	
+	
+	public Form_Page_6_Pom(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+
+	
+	
+	public void Set_Full_Name(String full_Name) throws InterruptedException
+	{
+	
+		Full_Name.clear();
+		Full_Name.sendKeys(full_Name);
+		
+	}
+	
+	public void Click_Enrolled_Here_RadioBtn(WebDriver driver) throws InterruptedException
+	{
+		Enrolled_Here_RadioBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Enrolled_Here_Radio_Button Yes selected", true);
+		Reporter.log("																", true);
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,300)");
+		Actions act = new Actions(driver);
+		act.moveToElement(Year).click().perform();
+		act.moveToElement(Year_1).click().perform();
+		Thread.sleep(2000);
+	}
+	
+	public void Click_Enrolled_Here_RadioBtn1() throws InterruptedException
+	{
+		Enrolled_Here_RadioBtn1.click();
+		Thread.sleep(2000);
+		Reporter.log("Enrolled_Here_Radio_Button No selected", true);
+		Reporter.log("																", true);
+		
+	}
+	
+	public void Click_Siblings_RadioBtn() throws InterruptedException
+	{
+		Siblings_RadioBtn.click();
+		Thread.sleep(2000);
+		siblings_guardian_Name.clear();
+		Thread.sleep(2000);
+		siblings_guardian_Name.sendKeys("Joseph");
+		Reporter.log("Siblings_Radio_Button Yes selected", true);
+		Reporter.log("																", true);
+	}
+	
+	public void Click_Siblings_RadioBtn1() throws InterruptedException
+	{
+		Siblings_RadioBtn1.click();
+		Thread.sleep(2000);
+		Reporter.log("Siblings_Radio_Button No selected", true);
+		Reporter.log("																", true);
+	}
+	
+	
+	
+	
+	
+	
+	public void Set_Primary_Parent_Email(String primary_Parent_Email) throws InterruptedException
+	{
+		Primary_Parent_Email.clear();
+		Primary_Parent_Email.sendKeys(primary_Parent_Email);
+		
+	}
+	
+	public void Set_Primary_Parent_Phone(String primary_Parent_Phone) throws InterruptedException
+	{
+		Primary_Parent_Phone.clear();
+		Primary_Parent_Phone.sendKeys(primary_Parent_Phone);
+		
+	}
+	
+	public void Set_Primary_Parent_Employeer(String primary_Parent_Employeer) throws InterruptedException
+	{
+		Primary_Parent_Employeer.clear();
+		Primary_Parent_Employeer.sendKeys(primary_Parent_Employeer);
+		
+	}
+	
+	public void Set_Work_number(String work_number) throws InterruptedException
+	{
+		Work_number.clear();
+		Work_number.sendKeys(work_number);
+		
+	}
+	
+	public void Set_Work_Email(String work_Email) throws InterruptedException
+	{
+		Work_Email.clear();
+		Work_Email.sendKeys(work_Email);
+		
+	}
+	
+	public void set_Contact_Option(WebDriver driver)
+	{
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,300)");
+		Actions act = new Actions(driver);
+		act.moveToElement(Contact_Option).click().perform();
+		act.moveToElement(Contact_Option_1).click().perform();
+		
+	}
+	
+	public void Set_Contact_Language(String contact_Language) throws InterruptedException
+	{
+		Contact_Language.clear();
+		Contact_Language.sendKeys(contact_Language);
+		
+	}
+	
+	public void Set_Name(String name) throws InterruptedException
+	{
+		Name.clear();
+		Name.sendKeys(name);
+		
+	}
+	
+	public void Set_Email(String email) throws InterruptedException
+	{
+		Email.clear();
+		Email.sendKeys(email);
+		
+	}
+	
+	public void Set_Relationship_With_Student(String relationship_With_Student) throws InterruptedException
+	{
+		Relationship_With_Student.clear();
+		Relationship_With_Student.sendKeys(relationship_With_Student);
+		
+	}
+	
+	public void Set_Phone_Number(String phone_Number) throws InterruptedException
+	{
+		Phone_Number.clear();
+		Phone_Number.sendKeys(phone_Number);
+		
+	}
+	
+	public void Set_Name1(String name1) throws InterruptedException
+	{
+		Name1.clear();
+		Name1.sendKeys(name1);
+		
+	}
+	
+	public void Set_Email1(String email1) throws InterruptedException
+	{
+		Email1.clear();
+		Email1.sendKeys(email1);
+		
+	}
+	
+	public void Set_Relationship_With_Student1(String relationship_With_Student1) throws InterruptedException
+	{
+		Relationship_With_Student1.clear();
+		Relationship_With_Student1.sendKeys(relationship_With_Student1);
+		
+	}
+	
+	public void Set_Phone_Number1(String phone_Number1) throws InterruptedException
+	{
+		Phone_Number1.clear();
+		Phone_Number1.sendKeys(phone_Number1);
+		
+	}
+	
+	public void Click_Next_Btn() throws InterruptedException
+	{
+		Next_Btn.click();
+		Thread.sleep(2000);
+	}
+	
+	
+	
+	
+	
+}
